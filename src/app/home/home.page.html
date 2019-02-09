@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      qrCode
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-input type="text" placeholder="My QR  Data" [(ngModel)]="qrData">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="barcode"></ion-icon>
+    <ion-button expand="full" (click)="createQrCode()">Create QR Code</ion-button>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="qr-scanner"></ion-icon>
+    <ion-button expand="full" (click)="readQrCode()">Read QR Code</ion-button>
+  </ion-item>
+  <!-- <button ion-button icon-left full (click)="CreateQrCode()">
+      <ion-icon name="barcode"></ion-icon>
+      Create Code
+  </button> -->
+
+  <ion-card *ngIf="creadedCode">
+
+    <ngx-qrcode [qrc-value]="creadedCode"></ngx-qrcode>
+
+    <ion-card-content>
+      <p>{{createdCode}}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-card *ngIf="scannedCode">
+
+    <ion-card-content>
+      <p>{{scannedCode}}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+
+</ion-content>
